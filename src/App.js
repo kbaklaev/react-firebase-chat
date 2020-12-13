@@ -10,7 +10,7 @@ import { useCollectionData } from "react-firebase-hooks/firestore";
 import "./App.css";
 
 firebase.initializeApp({
-// place for your firebase credentials !!!! ONLY !!!!! for test
+  // place for your firebase credentials !!!! ONLY !!!!! for test
 });
 
 firebase.auth().useDeviceLanguage();
@@ -42,11 +42,9 @@ const SignIn = () => {
 
   const signInWithPhone = () => {
     const captcha = new firebase.auth.RecaptchaVerifier("recaptcha-container", {
-      'size': 'invisible'
+      size: "invisible",
     });
-    firebase
-      .auth()
-      .signInWithPhoneNumber(phone, captcha)
+    auth.signInWithPhoneNumber(phone, captcha)
       .then((e) => {
         const code = prompt("Enter the one time password", "");
         if (code === null) return;
